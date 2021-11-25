@@ -1,3 +1,17 @@
-
-
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Mes Appareils</h2>
+      <p>Dernière mise à jour : {{ lastUpdate | async | date: 'short' }}</p>
+      <ul class="list-group" >
+      <app-appareil *ngFor="let appareil of appareils"
+      [appareilName]="appareil.name"
+      [appareilStatus]="appareil.status"></app-appareil>
+      </ul>
+      <button class="btn btn-success"
+      [disabled]="!isAuth"
+      (click)="onAllumer()">Tout allumer</button>
+    </div>
+  </div>
+</div>
 <router-outlet></router-outlet>
